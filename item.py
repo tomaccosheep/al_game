@@ -1,5 +1,4 @@
 import inventory
-#from random import random.choice()
 
 class Item:
     def __init__(self, name, description, mytype, attack=2, attacktype='throw'):
