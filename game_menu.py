@@ -1,41 +1,24 @@
-def cls():
-    os.system('cls' if os.name == 'nt' else 'clear')
+#def check_win(player):
+#    score = 0
+#    for thing in player.inventory.bag_of_holding:
+#        if thing.type == 'food':
+#            score += thing.score
+#    if score >= 60:
+#        print('You win!')
+#        return True
+#    else:
+#        return False
+#
+#
+#def check_death(player):
+#    if player.health <= 0:
+#        print('You have died')
+#        return True
 
+#room_controller.characters.append(danger_mouse)
 
-game_over = False
+#current_room = room_controller.room_dict[danger_mouse.location]
 
-
-def pretty_print_dict(dict):
-    for k in dict:
-        print('{}. {}'.format(k, dict[k]))
-
-
-def check_win(player):
-    score = 0
-    for thing in player.inventory.bag_of_holding:
-        if thing.type == 'food':
-            score += thing.score
-    if score >= 60:
-        print('You win!')
-        return True
-    else:
-        return False
-
-
-def check_death(player):
-    if player.health <= 0:
-        print('You have died')
-        return True
-
-danger_mouse = create_character()
-
-room_controller.characters.append(danger_mouse)
-
-current_room = room_controller.room_dict[danger_mouse.location]
-
-danger_dict = {'Danger mouse': danger_mouse}
-current_room.look()
-print("You are a 🐭")
 while not game_over:
     print('HP: {}'.format(danger_mouse.health))
     room_controller.update_all()
@@ -150,8 +133,6 @@ while not game_over:
     else:
         print('Please enter a valid menu option.')
 
-    game_over = check_death(danger_mouse)
-    if not game_over:
-        game_over = check_win(danger_mouse)
-
-print('Thanks for playing')
+#    game_over = check_death(danger_mouse)
+#    if not game_over:
+#        game_over = check_win(danger_mouse)
