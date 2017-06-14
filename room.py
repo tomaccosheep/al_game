@@ -89,7 +89,7 @@ class Coord():
 
 class Room():
     # This creates a room with basic conditions, and it also gives the room map_coord and room_coord
-    # Room_coord is zoomed in relative to map_coord at a scale of 3 to 1
+    # Room_coord is zoomed in relative to map_coord at a scale of 5 to 1
     # {{
     def __init__(self, name, description, doors, characters, coordinates):
         self.name = name
@@ -113,15 +113,16 @@ class Room():
             if i[1] < y_smallest:
                 y_smallest = i[1]
         for i in coordinates:
-            x = (i[0] - x_smallest) * 3
-            y = (i[1] - y_smallest) * 3
-            for j in [ 0, 1, 2]:
-                for k in [ 0, 1, 2]:
+            x = (i[0] - x_smallest) * 5
+            y = (i[1] - y_smallest) * 5
+            for j in [ 0, 1, 2, 3, 4]:
+                for k in [ 0, 1, 2, 3, 4]:
                     self.room_coord.append((x + j, y + k))
         # }}
-        self.coords_in_room = {}
+        #self.coords_in_room = {}
+        self.coord_dict = {}
         for i in self.room_coord:
-            self.coords_in_room[i] = Coord(i)
+            self.coord_dict[i] = Coord(i)
         
     # }}
 
