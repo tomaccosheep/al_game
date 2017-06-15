@@ -1,5 +1,3 @@
-from inventory import Inventory
-
 class Coord():
     def __init__(self, in_coord, item=None):
         # Every set of coordinates has 3 points on the z-axis to place
@@ -9,6 +7,7 @@ class Coord():
         self.z0 = item
         self.z1 = None
         self.z2 = None
+        self.status = None
         # }}
 
     def __str__(self):
@@ -87,17 +86,20 @@ class Coord():
             return returnie
         # }}
 
+
+    def update():
+        pass
+
+# This creates a room with basic conditions, and it also gives the room map_coord and room_coord
+# Room_coord is zoomed in relative to map_coord at a scale of 5 to 1
+# {{
 class Room():
-    # This creates a room with basic conditions, and it also gives the room map_coord and room_coord
-    # Room_coord is zoomed in relative to map_coord at a scale of 5 to 1
-    # {{
-    def __init__(self, name, description, doors, characters, coordinates):
-        self.name = name
-        self.description = description
-        self.doors = doors
+
+    def __init__(self, characters, coordinates):
         self.characters = characters
         self.map_coord = coordinates
         self.room_coord = []
+
         # First this runs through all coordinates to get the
         # smallest x coordinate and the smallest y coordinate.
         # Then it creates a list of tuples that are the coordinates
@@ -119,12 +121,11 @@ class Room():
                 for k in [ 0, 1, 2, 3, 4]:
                     self.room_coord.append((x + j, y + k))
         # }}
-        #self.coords_in_room = {}
+
         self.coord_dict = {}
         for i in self.room_coord:
             self.coord_dict[i] = Coord(i)
         
-    # }}
 
     def __str__(self):
         return self.name
@@ -135,12 +136,9 @@ class Room():
     def update_characters(self, characters):
         self.characters = list(characters)
 
-    def look(self):
-        print(self.description)
-        for character in self.characters:
-            print("{} is in the room".format(character))
-        for door in self.doors:
-            print("You can exit through {}".format(door))
+# }}
+
+
 
 class Door():
     def __init__(self, name, description, room1, room2, is_locked):

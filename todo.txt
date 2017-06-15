@@ -1,21 +1,7 @@
-.do
-...clean out clutter
-......Remove map
-......Remove AI
-......Remove stuff I don't like
-...Figure out coordinate system
-......Make room-level coordinates
-......Make map-level coordinates
-.........Pass in map-level coordinates and room-level coordinates into the room instantiation
-.........Give every room-level coordinate a 'has' variable to place things in positions
-.........Consider automatically generating room-level coordinates based on map-level coordinates
-............Give every room a dictionary of room-level coordinates that has values of items and conditions
-...Consider how 'update' will work
-......Consider how to handle exploding barrels
-.........Try adding fire to every 
-...Set turn conditions
-......Don't update turns from looking
-...Set condition for spirit-walking
-...Set conditions for when health is zero or below
-...Set conditions for when health is 200 or above
-......Make characters turn into puppies
+.Set condition for spirit-walking
+.redo doors
+
+.make a room creator
+...make a list of rooms that are 5x5
+...auto-place doors at edges of rooms at 3, 0 and 3, 5 and 0, 3 and 5, 3
+...trade coordinates with adjacent rooms
